@@ -1,0 +1,30 @@
+name: MadRank
+version: 2.0
+description: BlockMadness Playtime Logger
+authors: [K_Cin, arriej]
+website: http://blockmadness.com/
+main: com.blockmadness.kcin.madrank.MadRank
+database: true
+depend: [Vault]
+
+commands:
+  playtime:
+    description: Check playtime
+    aliases: age
+    permission: madrank.playtime
+    usage: |
+      Example: /<command> - See your own playtime
+      Example: /<command> player - See another player's playtime
+
+permissions:
+  madrank.*:
+    description: Gives access to all MadRank commands
+    children:
+      madrank.playtime: true
+      madrank.playtime.others: true
+  madrank.playtime:
+    description: Allows you to see your own playtime
+    default: true
+  madrank.playtime.others:
+    description: Allows you to see another player's playtime
+    default: op
