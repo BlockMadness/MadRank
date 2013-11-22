@@ -13,6 +13,7 @@ commands:
     aliases: age
     permission: madrank.playtime
     usage: |
+      /<command> [player]
       Example: /<command> - See your own playtime
       Example: /<command> player - See another player's playtime
 
