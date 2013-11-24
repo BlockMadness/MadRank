@@ -37,7 +37,6 @@ public class Commands implements CommandExecutor {
 			 *	// do something
 			 * }
 			 * 
-			 * 
 			 * Checking for permissions (do this after you checked if it's console or not)
 			 * 
 			 * if(player.hasPermission("madrank.playtime")) {
