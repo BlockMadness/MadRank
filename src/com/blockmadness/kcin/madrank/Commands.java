@@ -36,7 +36,7 @@ public class Commands implements CommandExecutor {
 			 *	Player player = (Player) sender;
 			 *	// do something
 			 * }
-			 * 
+			 * Hey ist me, testing...
 			 * 
 			 * Checking for permissions (do this after you checked if it's console or not)
 			 * 
