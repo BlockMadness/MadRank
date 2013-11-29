@@ -3,6 +3,9 @@ package com.blockmadness.kcin.madrank;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import java.util.logging.Logger;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class Commands implements CommandExecutor {
 	
@@ -21,8 +24,13 @@ public class Commands implements CommandExecutor {
 				sender.sendMessage("Too many arguments!");
 				return false;
 			} else if(args.length == 1) {
+				Player targetPlayer = player.getServer().getPlayer(args[0]);
+				//targetPlayer.getPlaytime
+				//player.sebdMessages(ChatColor.AQUA + "<player> has played <time> on BlockMadness!"
 				// they typed in a player name after the command (or something else, but it's something!)
-			} else if(args.length < 1) {
+			} else if(args.length == 0) {
+				//player.getPlaytime
+				//player.sebdMessages(ChatColor.AQUA + "You have played <time> on BlockMadness!"
 				 // they didn't type anything after the command, so send them their playtime
 				 // don't forget to check if it's a player or the console ofc (see below)
 			}
