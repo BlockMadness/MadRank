@@ -17,8 +17,7 @@ public class MadRank extends JavaPlugin {
 	public static MadRank plugin; 
 	
 	public void onEnable() {
-		PluginDescriptionFile pdfFile = this .getDescription();
-		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + "Has Been enabled!!");
+
 		
 		//Generate config if not exists.
 		try { 
@@ -48,8 +47,7 @@ public class MadRank extends JavaPlugin {
 	}
 	
 	public void onDisable() {
-		PluginDescriptionFile pdfFile = this .getDescription();
-		this.logger.info(pdfFile.getName() + " Has Been Disabled!");	// Stop timer thread
+	// Stop timer thread
 	}
 	
 }
