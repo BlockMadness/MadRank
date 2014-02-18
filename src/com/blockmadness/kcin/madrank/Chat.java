@@ -1,10 +1,54 @@
 package com.blockmadness.kcin.madrank;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-public class Colors {
-
-  //colors
+public class Chat {
+	
+	private MadRank plugin;
+	
+	public Chat(MadRank plugin) {
+		this.plugin = plugin;
+	}
+	
+    /** Chat prefix and colors
+     */
+    public static String prefix = "&f[&4Mad&3Rank&f] ";
+    public static ChatColor group = ChatColor.DARK_GREEN;
+    public static ChatColor normal = ChatColor.WHITE;
+    public static ChatColor special = ChatColor.GRAY;
+    
+    
+    /** Class to send messages to players or the console
+     * 
+     * @author K_Cin
+     * @category Chat
+     * @param receiver To who or what the message will be send
+     * @param message What needs to be send
+     * @return Returns true if there where no problems, otherwise false
+     * @version 0.1
+     */
+    public boolean cSendMsg(CommandSender receiver, String message) {
+    	if(receiver instanceof Player) {
+    		Player player = (Player) receiver;
+    		player.sendMessage(addColor(message));
+		} else {
+			plugin.log.info(message);
+		}
+		return false;
+    }
+    
+    
+    /** Class to send colors to chat messages send to players. 
+     * 
+     * @author arriej
+     * @author K_Cin
+     * @category Chat
+     * @param text String with chat color variables (&)
+     * @return Returns String with actual colors
+     * @version 0.1
+     */
   	public String addColor(String text) {
   		 String output = text.replace("&0", ChatColor.BLACK + "");
   		 output = output.replace("&1", ChatColor.DARK_BLUE + "");
@@ -28,13 +72,6 @@ public class Colors {
   		 output = output.replace("&r", ChatColor.RESET + "");
 
   		 return output;
-  	}
-  	
-    // Chat prefix and colors
-    public static String prefix = "&f[&4Mad&3Rank&f] ";
-    public static ChatColor group = ChatColor.DARK_GREEN;
-    public static ChatColor normal = ChatColor.WHITE;
-    public static ChatColor special = ChatColor.GRAY;
-    
+  	}    
   	
 }

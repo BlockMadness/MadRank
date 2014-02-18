@@ -18,15 +18,13 @@ public class Commands implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(cmd.getName().equalsIgnoreCase("playtime") | cmd.getName().equalsIgnoreCase("age")) { // If the player typed /playtime or /age
-			/* Check for arguments using
-			 */
 			if(args.length > 1) {
 				sender.sendMessage("Too many arguments!");
 				return false;
 			} else if(args.length == 1) {
-				Player targetPlayer = player.getServer().getPlayer(args[0]);
+				//Player targetPlayer = player.getServer().getPlayer(args[0]);
 				//targetPlayer.getPlaytime
-				//player.sebdMessages(ChatColor.AQUA + "<player> has played <time> on BlockMadness!"
+				//player.sendMessages(ChatColor.AQUA + "<player> has played <time> on BlockMadness!"
 				// they typed in a player name after the command (or something else, but it's something!)
 			} else if(args.length == 0) {
 				//player.getPlaytime

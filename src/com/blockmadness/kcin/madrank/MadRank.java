@@ -6,23 +6,31 @@ import java.util.logging.Logger;
 import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
 public class MadRank extends JavaPlugin {
-	public final Logger logger = Logger.getLogger("Minecraft"); //Logger
-    public static Permission perms = null; // Permissions
-    FileConfiguration config; // Config
+	
+	/** Register variables
+	 * 
+	 * Chat logger
+	 * File configuration
+	 * Permission variable static
+	 * Plugin variable static
+	 */
+	public final Logger log = Logger.getLogger("Minecraft");
+    public FileConfiguration config;
+	public static Permission perms = null;
 	public static MadRank plugin; 
 	
+	
 	public void onEnable() {
-
 		
-		//Generate config if not exists.
+		// Generate config if not exists.
 		try { 
-			if (!new File(getDataFolder(), "Madrank.yml").exists()) {
-				new File(getDataFolder(), "Madrank.yml").createNewFile();
+			if (!new File(getDataFolder(), "MadRank.yml").exists()) {
+				new File(getDataFolder(), "MadRank.yml").createNewFile();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,6 +40,7 @@ public class MadRank extends JavaPlugin {
     		log.info(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
             return;
+    	}
 	
 		/* Start timer thread
 		 * 
@@ -49,5 +58,14 @@ public class MadRank extends JavaPlugin {
 	public void onDisable() {
 	// Stop timer thread
 	}
+	
+    private boolean setupPermissions() {
+        Permission permission = null;
+        RegisteredServiceProvider<Permission> permissionProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
+		if (permissionProvider != null) {
+            permission = permissionProvider.getProvider();
+        }
+        return (permission != null);
+    }
 	
 }
